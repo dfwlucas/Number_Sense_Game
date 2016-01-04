@@ -1,0 +1,21 @@
+* {
+    -fx-font-family: 'Tahoma' , sans-serif;
+    -fx-font-size: 50px;
+    -fx-text-fill: #FFFFFF;
+}
+
+#background {
+    -fx-background-color: #558B2F;
+}
+
+#titleBar {
+    -fx-background-color: #212121;
+    -fx-effect: dropshadow(gaussian, #111111,2, 0.1, 0, 1);
+
+}
+
+#question {
+    -fx-text-fill: #FFFFFF;
+
+}
+
