@@ -1,6 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
@@ -9,29 +15,57 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Text?>
-<BorderPane
-        stylesheets="/css/styles.css"
-        fx:controller="sample.controllers.Controller"
-        xmlns:fx="http://javafx.com/fxml"
-        fx:id="background" prefWidth="900" prefHeight="600">
+
+<BorderPane fx:id="background" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Controller">
     <top>
-        <HBox fx:id="titleBar" >
-            <Label fx:id="title" text="Numbers">
-                <HBox.margin>
-                    <Insets left="50"/>
-                </HBox.margin>
-            </Label>
+        <HBox fx:id="titleBar">
+           <children>
+               <Label fx:id="title" text="Numbers">
+                   <HBox.margin>
+                       <Insets left="7" />
+                   </HBox.margin>
+               </Label>
+           </children>
         </HBox>
     </top>
-
-    <left>
-        <Label wrapText="true" text="3+5+9+12+15+18+166" fx:id="question" prefWidth="300">
-            <BorderPane.margin>
-                <Insets left="50"/>
-                <Insets top="200"/>
-            </BorderPane.margin>
+   <left>
+        <Label fx:id="question" prefWidth="300" text="3+5+9+12+15+18+166" wrapText="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="50.0" />
+         </BorderPane.margin>
         </Label>
-    </left>
+   </left>
+   <center>
+      <Label fx:id="equals" text="=" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </Label>
+   </center>
+   <right>
+      <TextField prefHeight="250.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="50.0" />
+         </BorderPane.margin>
+      </TextField>
+   </right>
+   <bottom>
+      <HBox fx:id="nextBar" alignment="CENTER_RIGHT" maxHeight="45.0" minHeight="45.0" prefHeight="45.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="accuracy" text="100% Accuracy" />
+            <Label fx:id="points" text="200 Points">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Label>
+            <Button alignment="CENTER" fx:id="nextButton" maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" text="NEXT" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="650.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
 
 
 </BorderPane>

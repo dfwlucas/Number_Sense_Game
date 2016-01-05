@@ -6,7 +6,6 @@ import javafx.scene.layout.HBox;
 
 public class Controller {
 
-
     public Controller() {
 
     }
