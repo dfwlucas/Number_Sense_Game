@@ -15,12 +15,10 @@ import java.io.*;
 
 public class Main extends Application {
 
-    public Workbook wb;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
-        setUpQuestions();
         primaryStage.setTitle("Numbers");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 600*1.5, 400*1.5, false, SceneAntialiasing.BALANCED));
@@ -28,18 +26,10 @@ public class Main extends Application {
 
     }
 
-    private void setUpQuestions() throws IOException, InvalidFormatException {
-            InputStream inp = this.getClass().getResourceAsStream("/database/Question Database.xlsx");//new FileInputStream("/resources/database/Question Database.xlsx");
-            wb = WorkbookFactory.create(inp);
-    }
+
 
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-
-    public Workbook getWb() {
-        return wb;
     }
 }
