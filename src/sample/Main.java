@@ -39,6 +39,7 @@ public class Main extends Application {
         launch(args);
         try {
             QuestionBooklet q = new QuestionBooklet();
+            q.cleanIterate();
         } catch (IOException e) {
             System.out.println("Error e!!!");
         }

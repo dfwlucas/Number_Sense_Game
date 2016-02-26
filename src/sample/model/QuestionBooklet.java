@@ -9,16 +9,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by Watafuru on 2/26/2016.
  */
 public class QuestionBooklet {
-    private List<Question> mBooklet;
+    private Set<Question> mBooklet;
 
     public QuestionBooklet() throws IOException {
-        File excel = new File("resources/database/newDatabase.xlsx");
+        mBooklet = new TreeSet<Question>();
+        File excel = new File("resources/database/oldDatabase.xlsx");
         if (excel.isFile()) {
             System.out.println("yas gaga");
         }
@@ -26,12 +30,26 @@ public class QuestionBooklet {
         XSSFWorkbook wb = new XSSFWorkbook(fis);
         XSSFSheet ws = wb.getSheetAt(0);
 
-        Row row = ws.getRow(0);
-        for (Cell cell: row) {
-            Question q = new Question();
-            q.setQuestionText(row.getCell(0).getStringCellValue());
-            q.setAnswerText(row.getCell(1).getStringCellValue());
-            System.out.println("A: " + q.getAnswerText() + "  Q: " + q.getQuestionText());
+        for (Row row : ws) {
+            for (Cell cell : row) {
+                Question q = new Question();
+                q.setQuestionText(row.getCell(0).getStringCellValue());
+                q.setAnswerText(row.getCell(1).getStringCellValue());
+                //System.out.println("A: " + q.getAnswerText() + "  Q: " + q.getQuestionText());
+                mBooklet.add(q);
+            }
+        }
+
+
+
+    }
+
+    public void cleanIterate() {
+        for (Question r : mBooklet) {
+            System.out.println("A: " + r.getAnswerText() + "  Q: " + r.getQuestionText());
+            if (r.getQuestionText().contentEquals("")){
+                System.out.println("Found an empty");
+            }
         }
     }
 }
