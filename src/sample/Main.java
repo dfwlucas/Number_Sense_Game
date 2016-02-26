@@ -12,6 +12,7 @@ import org.apache.poi.ss.formula.functions.Column;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import sample.model.QuestionBooklet;
 
 import java.io.*;
 import java.util.Iterator;
@@ -34,19 +35,12 @@ public class Main extends Application {
 
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         launch(args);
-        File excel = new File("resources/database/newDatabase.xlsx");
-        if (excel.isFile()) {
-            System.out.println("yas gaga");
+        try {
+            QuestionBooklet q = new QuestionBooklet();
+        } catch (IOException e) {
+            System.out.println("Error e!!!");
         }
-        FileInputStream fis = new FileInputStream(excel);
-        XSSFWorkbook wb = new XSSFWorkbook(fis);
-        XSSFSheet ws = wb.getSheetAt(0);
-
-      Row row = ws.getRow(0);
-            for (Cell cell: row) {
-                System.out.println(cell.getStringCellValue());
-            }
     }
 }
