@@ -3,7 +3,7 @@ package sample.model;
 /**
  * Created by Watafuru on 1/5/2016.
  */
-public class Question {
+public class Question implements Comparable{
 
     private String questionText;
     private String answerText;
@@ -25,4 +25,18 @@ public class Question {
     }
 
 
+    @Override
+    public int compareTo(Object o) {
+       Question q = (Question) o;
+        if (this.getQuestionText().compareTo(q.getQuestionText()) < 0) {
+            return -1;
+        }
+
+        if (this.getQuestionText().compareTo(q.getQuestionText()) > 0) {
+            return 1;
+        }
+
+        return 0;
+
+    }
 }

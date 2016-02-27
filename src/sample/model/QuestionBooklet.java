@@ -9,10 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Created by Watafuru on 2/26/2016.
@@ -45,10 +42,16 @@ public class QuestionBooklet {
     }
 
     public void cleanIterate() {
-        for (Question r : mBooklet) {
-            System.out.println("A: " + r.getAnswerText() + "  Q: " + r.getQuestionText());
-            if (r.getQuestionText().contentEquals("")){
+
+        Iterator<Question> setIterator = mBooklet.iterator();
+
+        Question current;
+        while (setIterator.hasNext()) {
+                current = setIterator.next();
+             System.out.println("A: " + current.getAnswerText() + "  Q: " + current.getQuestionText());
+            if (current.getQuestionText().contentEquals("")){
                 System.out.println("Found an empty");
+                setIterator.remove();
             }
         }
     }
