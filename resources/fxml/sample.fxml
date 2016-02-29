@@ -29,7 +29,7 @@
         </HBox>
     </top>
    <left>
-        <Label fx:id="question" prefWidth="300" text="3+5+9+12+15+18+166" wrapText="true" BorderPane.alignment="CENTER">
+        <Label fx:id="question" prefWidth="300" text="Loading Question...." wrapText="true" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets left="50.0" />
          </BorderPane.margin>

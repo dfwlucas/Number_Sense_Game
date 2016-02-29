@@ -55,4 +55,8 @@ public class QuestionBooklet {
             }
         }
     }
+
+    public Question getRandomQuestion() {
+        return null;
+    }
 }

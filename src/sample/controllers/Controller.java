@@ -8,6 +8,8 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import sample.Main;
+import sample.model.Question;
+import sample.model.QuestionBooklet;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,14 +19,22 @@ import java.util.Iterator;
 
 public class Controller {
 
-    private XSSFWorkbook questionDatabase;
-    private XSSFSheet questionSheet;
+
+
+    private Question current;
+    private QuestionBooklet q;
 
     public Controller() {
+        try {
+            q = new QuestionBooklet();
+            q.cleanIterate();
+        } catch (IOException e) {
+            System.out.println("Error e!!!");
+        }
+
+        current = q.getRandomQuestion();
 
     }
 
-    private void setUpQuestions() throws IOException, InvalidFormatException {
 
-    }
 }

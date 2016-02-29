@@ -19,8 +19,6 @@ import java.util.Iterator;
 
 public class Main extends Application {
 
-    private static XSSFWorkbook questionDatabase;
-    private static XSSFSheet questionSheet;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -37,11 +35,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        try {
-            QuestionBooklet q = new QuestionBooklet();
-            q.cleanIterate();
-        } catch (IOException e) {
-            System.out.println("Error e!!!");
-        }
+
     }
 }
