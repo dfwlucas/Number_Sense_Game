@@ -36,5 +36,15 @@ public class Controller {
 
     }
 
+    private void setupNextQuestion() {
+
+
+    }
+
+    private void checkAnswer(String s) {
+
+
+    }
+
 
 }

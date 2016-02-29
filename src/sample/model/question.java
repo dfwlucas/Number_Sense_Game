@@ -39,4 +39,9 @@ public class Question implements Comparable{
         return 0;
 
     }
+
+    public Boolean checkAnswer(String s) {
+
+        return s.equals(this.getAnswerText());
+    }
 }

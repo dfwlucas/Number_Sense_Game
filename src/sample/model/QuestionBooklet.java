@@ -19,7 +19,7 @@ public class QuestionBooklet {
 
     public QuestionBooklet() throws IOException {
         mBooklet = new TreeSet<Question>();
-        File excel = new File("resources/database/oldDatabase.xlsx");
+        File excel = new File("resources/database/newestDatabase.xlsx");
         if (excel.isFile()) {
             System.out.println("yas gaga");
         }
@@ -49,7 +49,7 @@ public class QuestionBooklet {
         while (setIterator.hasNext()) {
                 current = setIterator.next();
              System.out.println("A: " + current.getAnswerText() + "  Q: " + current.getQuestionText());
-            if (current.getQuestionText().contentEquals("")){
+            if (current.getQuestionText().contentEquals("") || current.getAnswerText().contentEquals("")){
                 System.out.println("Found an empty");
                 setIterator.remove();
             }
