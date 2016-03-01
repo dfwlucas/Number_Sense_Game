@@ -32,13 +32,13 @@ public class Controller {
             System.out.println("Error e!!!");
         }
 
-        current = q.getRandomQuestion();
+        setupNextQuestion();
 
     }
 
     private void setupNextQuestion() {
-
-
+    current = q.getRandomQuestion();
+    System.out.println("the current question is: " + current);
     }
 
     private void checkAnswer(String s) {

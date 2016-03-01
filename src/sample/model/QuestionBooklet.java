@@ -57,6 +57,15 @@ public class QuestionBooklet {
     }
 
     public Question getRandomQuestion() {
+        int size = mBooklet.size();
+        int rand = new Random().nextInt(size);
+        int i = 0;
+        for (Question theQuestion : mBooklet) {
+
+            if (i == rand) return theQuestion;
+            i++;
+        }
+        System.out.println("ERROR!!!");
         return null;
     }
 }
