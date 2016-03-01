@@ -44,4 +44,11 @@ public class Question implements Comparable{
 
         return s.equals(this.getAnswerText());
     }
+
+    @Override
+    public String toString() {
+
+        return "Q: " + this.getQuestionText() + "    A: " + this.getAnswerText();
+
+    }
 }
