@@ -1,6 +1,10 @@
 package sample.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -20,8 +24,9 @@ import java.util.Scanner;
 
 public class Controller {
 
-
-
+    @FXML private TextField answerBox;
+    @FXML private Label question;
+    @FXML private Button nextButton;
     private Question current;
     private QuestionBooklet q;
 
@@ -33,10 +38,9 @@ public class Controller {
             System.out.println("Error e!!!");
         }
 
-        for (int i = 0; i < 10; i++) {
+
             setupNextQuestion();
-            loadQuestionToScreen();
-        }
+
     }
 
     private void setupNextQuestion() {
@@ -46,20 +50,29 @@ public class Controller {
 
     private void loadQuestionToScreen() {
         //TODO:Make this method actually work
+
+    }
+
+
+    public void handleNextQuestion(ActionEvent event) {
+     if (checkAnswer() == true) {
+         setupNextQuestion();
+     }   else {
+         System.out.println("Sorry that's not correct!");
+     }
+    }
+
+    private boolean checkAnswer() {
+
         Scanner s = new Scanner(System.in);
         System.out.println(current.getQuestionText() + "? --> ");
         String answer = s.nextLine();
         if (answer.equals(current.getAnswerText())) {
             System.out.println("Correct!");
+            return true;
         } else {
             System.out.println("Incorrect :( --> " + current.toString());
+            return false;
         }
     }
-
-    private void checkAnswer(String s) {
-
-
-    }
-
-
 }
