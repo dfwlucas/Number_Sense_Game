@@ -84,9 +84,9 @@ public class Controller {
 
     private boolean checkAnswer() {
 
-        Scanner s = new Scanner(System.in);
+        //Scanner s = new Scanner(System.in);
         //System.out.println(current.getQuestionText() + "? --> ");
-        String answer = s.nextLine();
+        String answer = answerBox.getText();
         if (answer.equals(current.getAnswerText())) {
             System.out.println("Correct!");
             return true;
