@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Paint;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -33,7 +34,8 @@ public class Controller {
 
     @FXML
     private void initialize() {
-        questionText.setText("text");
+        questionText.setTextFill(Paint.valueOf("#FFFFFF"));
+        questionText.setText(current.getQuestionText());
     }
 
     private Question current;
@@ -49,9 +51,9 @@ public class Controller {
 
 
             setupNextQuestion();
-            //loadQuestionToScreen();
-
     }
+
+    
 
 
 
@@ -63,15 +65,21 @@ public class Controller {
     private void loadQuestionToScreen() {
         //TODO:Make this method actually work
         questionText.setText(current.getQuestionText());
+        questionText.setTextFill(Paint.valueOf(("#FFFFFF")));
     }
 
 
-    public void handleNextQuestion(ActionEvent event) {
-     if (checkAnswer() == true) {
-         setupNextQuestion();
-     }   else {
-         System.out.println("Sorry that's not correct!");
-     }
+    public void handleNextButton(ActionEvent event) {
+        nextQuestion();
+    }
+
+    private void nextQuestion() {
+        if (checkAnswer() == true) {
+            setupNextQuestion();
+            loadQuestionToScreen();
+        }   else {
+            System.out.println("Sorry that's not correct!");
+        }
     }
 
     private boolean checkAnswer() {
@@ -86,5 +94,12 @@ public class Controller {
             System.out.println("Incorrect :( --> " + current.toString());
             return false;
         }
+    }
+
+
+    //called when the enter key is pressed should read the value like the next button
+    public void handleAnswerFill(ActionEvent actionEvent) {
+        System.out.println("Enter key pressed!");
+        nextQuestion();
     }
 }

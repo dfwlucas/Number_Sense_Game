@@ -43,7 +43,7 @@
       </Label>
    </center>
    <right>
-      <TextField fx:id="answerBox" prefHeight="250.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+      <TextField fx:id="answerBox" onAction="#handleAnswerFill" prefHeight="250.0" prefWidth="250.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets right="50.0" />
          </BorderPane.margin>
@@ -58,7 +58,7 @@
                   <Insets left="30.0" />
                </HBox.margin>
             </Label>
-            <Button alignment="CENTER" fx:id="nextButton" onAction="#handleNextQuestion" maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" text="NEXT" textAlignment="CENTER">
+            <Button alignment="CENTER" fx:id="nextButton" onAction="#handleNextButton" maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" text="NEXT" textAlignment="CENTER">
                <HBox.margin>
                   <Insets left="650.0" />
                </HBox.margin>
