@@ -24,9 +24,18 @@ import java.util.Scanner;
 
 public class Controller {
 
-    @FXML private TextField answerBox;
-    @FXML private Label question;
-    @FXML private Button nextButton;
+    @FXML
+    private TextField answerBox;
+    @FXML
+    private Label questionText;
+    @FXML
+    private Button nextButton;
+
+    @FXML
+    private void initialize() {
+        questionText.setText("text");
+    }
+
     private Question current;
     private QuestionBooklet q;
 
@@ -40,8 +49,11 @@ public class Controller {
 
 
             setupNextQuestion();
+            //loadQuestionToScreen();
 
     }
+
+
 
     private void setupNextQuestion() {
     current = q.getRandomQuestion();
@@ -50,7 +62,7 @@ public class Controller {
 
     private void loadQuestionToScreen() {
         //TODO:Make this method actually work
-
+        questionText.setText(current.getQuestionText());
     }
 
 
@@ -65,7 +77,7 @@ public class Controller {
     private boolean checkAnswer() {
 
         Scanner s = new Scanner(System.in);
-        System.out.println(current.getQuestionText() + "? --> ");
+        //System.out.println(current.getQuestionText() + "? --> ");
         String answer = s.nextLine();
         if (answer.equals(current.getAnswerText())) {
             System.out.println("Correct!");
